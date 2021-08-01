@@ -5,38 +5,37 @@
 //CraftonAnna15
 
 #include <iostream>
-#include <locale>
+#include <cmath>
 
 using namespace std;
 
 //functions
 int half(int);
-double half(double);
-float half(float);
 
-int manin() {
+template <class halfType>
+halfType half(halfType num) {
+	return (num / 2);
+}
 
+int main() {
+	int intNum = 3;
+	double doubleNum = 7;
+	float floatNum = 5.0f;
 
-
+	cout << half (doubleNum) << endl;
+	cout << half(floatNum) << endl;
+	cout << half(intNum) << endl;
+	
+	return 0;
 }
 
 //halfs int, rounding up from .5.
 int half(int num) {
-	int half;
-	half = num / 2;
-	return half;
-};
-
-//halfs double.
-double half(double num) {
-	double half;
-	half = num / 2;
-	return half;
-};
-
-//halfs float.
-float half(float num) {
+	float floatNum;
 	float half;
-	half = num / 2;
-	return half;
-}
+	floatNum = static_cast<float> (num);
+	half = floatNum / 2;
+	floatNum = round(half);
+
+	return floatNum;
+};
